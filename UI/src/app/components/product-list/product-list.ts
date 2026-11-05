@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
+import { Product } from '../../models/product';
 
 @Component({
   imports: [ProductCard],
@@ -7,4 +8,6 @@ import { ProductCard } from '../product-card/product-card';
   styleUrl: './product-list.css',
   templateUrl: './product-list.html',
 })
-export class ProductList {}
+export class ProductList {
+  @Input() products: Product[] = [];
+}

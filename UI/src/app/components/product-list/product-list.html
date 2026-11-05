@@ -4,21 +4,11 @@
 
   <div class="row g-3">
 
-    <div class="col-md-6">
-      <app-product-card></app-product-card>
-    </div>
-
-    <div class="col-md-6">
-      <app-product-card></app-product-card>
-    </div>
-
-    <div class="col-md-6">
-      <app-product-card></app-product-card>
-    </div>
-
-    <div class="col-md-6">
-      <app-product-card></app-product-card>
-    </div>
+    @for (product of products; track product.id) {
+      <div class="col-md-6">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    }
 
   </div>
 
