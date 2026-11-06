@@ -9,9 +9,12 @@
       <p class="text-muted text-center">Your cart is empty.</p>
     } @else {
       @for (item of cartItems; track $index) {
-        <div class="d-flex justify-content-between mb-3">
+        <div class="d-flex align-items-center justify-content-between mb-3">
           <span>{{ item.name }}</span>
-          <strong>₹{{ item.price }}</strong>
+          <strong class="ms-auto me-3">₹{{ item.price }}</strong>
+          <button class="btn btn-danger btn-sm" (click)="onRemove(item.id)">
+            <i class="bi bi-trash"></i>
+          </button>
         </div>
       }
     }

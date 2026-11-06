@@ -23,4 +23,8 @@ export class ShoppingCart {
     this.cartItems = [...this.cartItems, product];
     console.log('Added Product:', product);
   }
+
+  removeFromCart(id: number) {
+    this.cartItems = this.cartItems.filter(item => item.id !== id);
+  }
 }
