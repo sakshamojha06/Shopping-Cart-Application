@@ -20,6 +20,10 @@ export class ShoppingCart {
   cartItems: Product[] = [];
   message: string = '';
 
+  get cartCount(): number {
+    return this.cartItems.length;
+  }
+
   addToCart(product: Product) {
   const alreadyExists = this.cartItems.some(
     item => item.id === product.id
