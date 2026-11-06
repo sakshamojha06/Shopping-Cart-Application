@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../models/product';
 
 @Component({
   imports: [],
@@ -6,4 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './cart.css',
   templateUrl: './cart.html',
 })
-export class Cart {}
+export class Cart {
+  @Input() cartItems: Product[] = [];
+
+  get totalAmount(): number {
+    return this.cartItems.reduce((total, item) => total + item.price, 0);
+  }
+
+  get totalItems(): number {
+    return this.cartItems.length;
+  }
+}

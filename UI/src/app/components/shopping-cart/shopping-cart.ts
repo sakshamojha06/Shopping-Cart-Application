@@ -20,7 +20,7 @@ export class ShoppingCart {
   cartItems: Product[] = [];
 
   addToCart(product: Product) {
-    this.cartItems.push(product);
+    this.cartItems = [...this.cartItems, product];
     console.log('Added Product:', product);
   }
 }
