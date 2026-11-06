@@ -16,4 +16,11 @@ export class ShoppingCart {
     { id: 3, name: 'Mouse', price: 500 },
     { id: 4, name: 'Monitor', price: 10000 }
   ];
+
+  cartItems: Product[] = [];
+
+  addToCart(product: Product) {
+    this.cartItems.push(product);
+    console.log('Added Product:', product);
+  }
 }

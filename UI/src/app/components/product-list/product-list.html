@@ -6,7 +6,7 @@
 
     @for (product of products; track product.id) {
       <div class="col-md-6">
-        <app-product-card [product]="product"></app-product-card>
+        <app-product-card [product]="product" (addToCart)="addToCart.emit($event)"></app-product-card>
       </div>
     }
 
