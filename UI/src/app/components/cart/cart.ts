@@ -12,6 +12,8 @@ export class Cart {
 
   @Output() removeFromCart = new EventEmitter<number>();
 
+  selectedProductId: number | null = null;
+
   onRemove(id: number) {
     this.removeFromCart.emit(id);
   }
@@ -22,5 +24,20 @@ export class Cart {
 
   get totalItems(): number {
     return this.cartItems.length;
+  }
+
+  confirmRemove(id: number) {
+    this.selectedProductId = id;
+  }
+
+  cancelRemove() {
+    this.selectedProductId = null;
+  }
+
+  removeProduct() {
+    if(this.selectedProductId != null) {
+      this.removeFromCart.emit(this.selectedProductId);
+      this.selectedProductId = null;
+    }
   }
 }

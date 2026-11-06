@@ -12,8 +12,8 @@
         <div class="d-flex align-items-center justify-content-between mb-3">
           <span>{{ item.name }}</span>
           <strong class="ms-auto me-3">₹{{ item.price }}</strong>
-          <button class="btn btn-danger btn-sm" (click)="onRemove(item.id)">
-            <i class="bi bi-trash"></i>
+          <button class="btn btn-danger btn-sm" (click)="confirmRemove(item.id)">
+              <i class="bi bi-trash"></i>
           </button>
         </div>
       }
@@ -27,3 +27,32 @@
 
   </div>
 </div>
+
+@if (selectedProductId !== null) {
+  <div class="modal d-block" tabindex="-1" style="background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Removal</h5>
+          <button type="button" class="btn-close" (click)="cancelRemove()"></button>
+        </div>
+
+        <div class="modal-body">
+          Are you sure you want to remove this product from your cart?
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" (click)="cancelRemove()">
+            Cancel
+          </button>
+
+          <button class="btn btn-danger" (click)="removeProduct()">
+            Remove
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+}
