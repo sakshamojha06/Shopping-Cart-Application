@@ -10,6 +10,7 @@ import { Product } from '../../models/product';
 })
 export class ProductList {
   @Input() products: Product[] = [];
+  @Input() cartItems: Product[] = [];
 
   @Output() addToCart = new EventEmitter<Product>();
 }

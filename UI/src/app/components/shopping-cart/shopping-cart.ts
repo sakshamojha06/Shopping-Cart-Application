@@ -18,11 +18,21 @@ export class ShoppingCart {
   ];
 
   cartItems: Product[] = [];
+  message: string = '';
 
   addToCart(product: Product) {
-    this.cartItems = [...this.cartItems, product];
-    console.log('Added Product:', product);
+  const alreadyExists = this.cartItems.some(
+    item => item.id === product.id
+  );
+
+  if (alreadyExists) {
+    this.message = `${product.name} is already in your cart!`;
+    return;
   }
+
+  this.cartItems = [...this.cartItems, product];
+  this.message = '';
+}
 
   removeFromCart(id: number) {
     this.cartItems = this.cartItems.filter(item => item.id !== id);

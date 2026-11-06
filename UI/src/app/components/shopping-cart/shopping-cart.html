@@ -1,16 +1,39 @@
 <div class="container-fluid p-4">
+
     <h2 class="text-center mb-4">
-        <i class="bi bi-cart"></i> 
+        <i class="bi bi-cart"></i>
         Shopping Cart Application
     </h2>
 
+    @if (message) {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ message }}
+
+            <button
+                type="button"
+                class="btn-close"
+                (click)="message = ''">
+            </button>
+        </div>
+    }
+
     <div class="row">
+
         <div class="col-md-7">
-            <app-product-list [products]="products" (addToCart)="addToCart($event)"></app-product-list>
+            <app-product-list
+                [products]="products"
+                [cartItems]="cartItems"
+                (addToCart)="addToCart($event)">
+            </app-product-list>
         </div>
 
         <div class="col-md-5">
-            <app-cart [cartItems]="cartItems" (removeFromCart)="removeFromCart($event)"></app-cart>
+            <app-cart
+                [cartItems]="cartItems"
+                (removeFromCart)="removeFromCart($event)">
+            </app-cart>
         </div>
+
     </div>
+
 </div>
